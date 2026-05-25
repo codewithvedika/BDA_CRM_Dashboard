@@ -14,7 +14,7 @@ export default function Register() {
     setLoading(true);
     try {
       await register(form);
-      navigate('/');
+      navigate('/BDA_CRM_Dashboard/');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Registration failed');
     } finally {
@@ -71,7 +71,7 @@ export default function Register() {
           </form>
           <p className="text-center mt-6 text-sm text-gray-600 dark:text-gray-400">
             Already have an account?{' '}
-            <Link to="/login" className="text-blue-600 hover:underline font-medium">Sign In</Link>
+            <Link to="/BDA_CRM_Dashboard/login" className="text-blue-600 hover:underline font-medium">Sign In</Link>
           </p>
         </div>
       </div>

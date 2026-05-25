@@ -9,7 +9,7 @@ import {
 import { FiUsers, FiTrendingUp, FiDollarSign, FiAlertCircle, FiClock, FiCheckCircle, FiArrowRight } from 'react-icons/fi';
 import { formatDistanceToNow } from 'date-fns';
 
-const COLORS = ['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6','#06b6d4','#ec4899'];
+const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4', '#ec4899'];
 
 const StatCard = ({ title, value, icon, color, sub, onClick }) => (
   <div onClick={onClick} className={`card p-5 ${onClick ? 'cursor-pointer hover:shadow-md transition-shadow' : ''}`}>
@@ -38,7 +38,7 @@ export default function Dashboard() {
       .then(([s, m, p, a]) => {
         setStats(s.data);
         setMonthly(m.data);
-        setPipeline(p.data.filter(d => !['Won','Lost'].includes(d.stage)));
+        setPipeline(p.data.filter(d => !['Won', 'Lost'].includes(d.stage)));
         setActivities(a.data);
       })
       .finally(() => setLoading(false));
@@ -50,7 +50,7 @@ export default function Dashboard() {
     </div>
   );
 
-  const fmt = (n) => n >= 100000 ? `₹${(n/100000).toFixed(1)}L` : `₹${n?.toLocaleString()}`;
+  const fmt = (n) => n >= 100000 ? `₹${(n / 100000).toFixed(1)}L` : `₹${n?.toLocaleString()}`;
 
   return (
     <div className="space-y-6 fade-in">
@@ -63,15 +63,15 @@ export default function Dashboard() {
 
       {/* Stats grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard title="Total Leads" value={stats?.totalLeads || 0} icon={<FiUsers className="text-white text-lg" />} color="bg-blue-500" onClick={() => navigate('/leads')} />
-        <StatCard title="New Leads" value={stats?.newLeads || 0} icon={<FiTrendingUp className="text-white text-lg" />} color="bg-green-500" onClick={() => navigate('/leads?status=New Lead')} />
+        <StatCard title="Total Leads" value={stats?.totalLeads || 0} icon={<FiUsers className="text-white text-lg" />} color="bg-blue-500" onClick={() => navigate('/BDA_CRM_Dashboard/leads')} />
+        <StatCard title="New Leads" value={stats?.newLeads || 0} icon={<FiTrendingUp className="text-white text-lg" />} color="bg-green-500" onClick={() => navigate('/BDA_CRM_Dashboard/leads?status=New Lead')} />
         <StatCard title="Won Leads" value={stats?.wonLeads || 0} icon={<FiCheckCircle className="text-white text-lg" />} color="bg-emerald-500" sub={`${stats?.conversionRate}% conversion`} />
         <StatCard title="Revenue" value={fmt(stats?.revenue)} icon={<FiDollarSign className="text-white text-lg" />} color="bg-purple-500" sub={`Pipeline: ${fmt(stats?.pipelineValue)}`} />
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard title="Pending Tasks" value={stats?.pendingTasks || 0} icon={<FiClock className="text-white text-lg" />} color="bg-yellow-500" onClick={() => navigate('/tasks')} />
-        <StatCard title="Overdue Tasks" value={stats?.overdueTasks || 0} icon={<FiAlertCircle className="text-white text-lg" />} color="bg-red-500" onClick={() => navigate('/tasks?status=Overdue')} />
+        <StatCard title="Pending Tasks" value={stats?.pendingTasks || 0} icon={<FiClock className="text-white text-lg" />} color="bg-yellow-500" onClick={() => navigate('/BDA_CRM_Dashboard/tasks')} />
+        <StatCard title="Overdue Tasks" value={stats?.overdueTasks || 0} icon={<FiAlertCircle className="text-white text-lg" />} color="bg-red-500" onClick={() => navigate('/BDA_CRM_Dashboard/tasks?status=Overdue')} />
         <StatCard title="Contacted" value={stats?.contactedLeads || 0} icon={<FiUsers className="text-white text-lg" />} color="bg-cyan-500" />
         <StatCard title="Lost Leads" value={stats?.lostLeads || 0} icon={<FiAlertCircle className="text-white text-lg" />} color="bg-gray-500" />
       </div>
@@ -126,7 +126,7 @@ export default function Dashboard() {
       <div className="card p-5">
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-semibold text-gray-900 dark:text-white">Recent Activity</h3>
-          <button onClick={() => navigate('/leads')} className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1">
+          <button onClick={() => navigate('/BDA_CRM_Dashboard/leads')} className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1">
             View all <FiArrowRight />
           </button>
         </div>

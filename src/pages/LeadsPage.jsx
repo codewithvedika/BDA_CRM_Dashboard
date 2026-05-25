@@ -135,7 +135,7 @@ export default function LeadsPage() {
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-1">
-                      <button onClick={() => navigate(`/leads/${lead._id}`)} className="p-1.5 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded text-blue-600 hover:text-blue-700">
+                      <button onClick={() => navigate(`/BDA_CRM_Dashboard/leads/${lead._id}`)} className="p-1.5 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded text-blue-600 hover:text-blue-700">
                         <FiEye />
                       </button>
                       <button onClick={() => { setEditLead(lead); setShowModal(true); }} className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-gray-500">

@@ -68,7 +68,7 @@ function LeadCard({ lead, isDragging }) {
       <div className="mt-2 pt-2 border-t border-gray-100 dark:border-gray-800 opacity-0 group-hover:opacity-100 transition-opacity">
         <button
           onPointerDown={e => e.stopPropagation()}
-          onClick={() => navigate(`/leads/${lead._id}`)}
+          onClick={() => navigate(`/BDA_CRM_Dashboard/leads/${lead._id}`)}
           className="text-xs text-blue-600 hover:text-blue-700 font-medium">
           View Details →
         </button>

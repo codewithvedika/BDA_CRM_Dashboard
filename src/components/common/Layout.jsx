@@ -19,7 +19,7 @@ export default function Layout() {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    socket = io('http://localhost:5000');
+    socket = io('https://bda-crm-api-tw9j.onrender.com/api');
     socket.emit('join', user._id);
     socket.on('notification', (data) => {
       setNotifications(prev => [data, ...prev.slice(0, 9)]);
@@ -29,12 +29,12 @@ export default function Layout() {
   }, [user._id]);
 
   const navItems = [
-    { to: '/', icon: <FiHome />, label: 'Dashboard', end: true },
-    { to: '/leads', icon: <FiList />, label: 'Leads' },
-    { to: '/kanban', icon: <FiTrello />, label: 'Pipeline' },
-    { to: '/tasks', icon: <FiCheckSquare />, label: 'Tasks' },
-    { to: '/analytics', icon: <FiBarChart2 />, label: 'Analytics' },
-    ...(user?.role === 'admin' ? [{ to: '/team', icon: <FiUsers />, label: 'Team' }] : []),
+    { to: '/BDA_CRM_Dashboard/', icon: <FiHome />, label: 'Dashboard', end: true },
+    { to: '/BDA_CRM_Dashboard/leads', icon: <FiList />, label: 'Leads' },
+    { to: '/BDA_CRM_Dashboard/kanban', icon: <FiTrello />, label: 'Pipeline' },
+    { to: '/BDA_CRM_Dashboard/tasks', icon: <FiCheckSquare />, label: 'Tasks' },
+    { to: '/BDA_CRM_Dashboard/analytics', icon: <FiBarChart2 />, label: 'Analytics' },
+    ...(user?.role === 'admin' ? [{ to: '/BDA_CRM_Dashboard/team', icon: <FiUsers />, label: 'Team' }] : []),
   ];
 
   return (
@@ -71,7 +71,7 @@ export default function Layout() {
 
           {/* User info */}
           <div className="p-4 border-t border-gray-200 dark:border-gray-800">
-            <button onClick={() => navigate('/profile')} className="flex items-center gap-3 w-full p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <button onClick={() => navigate('/BDA_CRM_Dashboard/profile')} className="flex items-center gap-3 w-full p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
               <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold text-sm">
                 {user?.name?.charAt(0).toUpperCase()}
               </div>
@@ -106,7 +106,7 @@ export default function Layout() {
                 )}
               </button>
             </div>
-            <button onClick={() => navigate('/profile')} className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+            <button onClick={() => navigate('/BDA_CRM_Dashboard/profile')} className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
               <FiUser className="text-xl" />
             </button>
             <button onClick={logout} className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600">

@@ -14,7 +14,7 @@ export default function Login() {
     setLoading(true);
     try {
       await login(form.email, form.password);
-      navigate('/');
+      navigate('/BDA_CRM_Dashboard/');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Login failed');
     } finally {
@@ -67,7 +67,7 @@ export default function Login() {
 
           <p className="text-center mt-6 text-sm text-gray-600 dark:text-gray-400">
             Don't have an account?{' '}
-            <Link to="/register" className="text-blue-600 hover:underline font-medium">Register</Link>
+            <Link to="/BDA_CRM_Dashboard/register" className="text-blue-600 hover:underline font-medium">Register</Link>
           </p>
         </div>
       </div>

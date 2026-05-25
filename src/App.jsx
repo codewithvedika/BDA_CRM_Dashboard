@@ -19,8 +19,8 @@ import ProfilePage from './pages/ProfilePage';
 const PrivateRoute = ({ children, adminOnly = false }) => {
   const { user, loading } = useAuth();
   if (loading) return <div className="flex h-screen items-center justify-center"><div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600" /></div>;
-  if (!user) return <Navigate to="/login" />;
-  if (adminOnly && user.role !== 'admin') return <Navigate to="/" />;
+  if (!user) return <Navigate to="/BDA_CRM_Dashboard/login" />;
+  if (adminOnly && user.role !== 'admin') return <Navigate to="/BDA_CRM_Dashboard/" />;
   return children;
 };
 
@@ -31,17 +31,19 @@ function App() {
         <Router>
           <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
-              <Route index element={<Dashboard />} />
-              <Route path="leads" element={<LeadsPage />} />
-              <Route path="leads/:id" element={<LeadDetail />} />
-              <Route path="kanban" element={<KanbanPage />} />
-              <Route path="tasks" element={<TasksPage />} />
-              <Route path="team" element={<PrivateRoute adminOnly><TeamPage /></PrivateRoute>} />
-              <Route path="analytics" element={<AnalyticsPage />} />
-              <Route path="profile" element={<ProfilePage />} />
+            <Route path='/BDA_CRM_Dashboard/'>
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
+              <Route path="" element={<PrivateRoute><Layout /></PrivateRoute>}>
+                <Route index element={<Dashboard />} />
+                <Route path="leads" element={<LeadsPage />} />
+                <Route path="leads/:id" element={<LeadDetail />} />
+                <Route path="kanban" element={<KanbanPage />} />
+                <Route path="tasks" element={<TasksPage />} />
+                <Route path="team" element={<PrivateRoute adminOnly><TeamPage /></PrivateRoute>} />
+                <Route path="analytics" element={<AnalyticsPage />} />
+                <Route path="profile" element={<ProfilePage />} />
+              </Route>
             </Route>
           </Routes>
         </Router>

@@ -87,7 +87,7 @@ export default function LeadDetail() {
     <div className="space-y-6 fade-in max-w-6xl">
       {/* Header */}
       <div className="flex items-start gap-4">
-        <button onClick={() => navigate('/leads')} className="btn-secondary py-2 px-3 mt-1"><FiArrowLeft /></button>
+        <button onClick={() => navigate('/BDA_CRM_Dashboard/leads')} className="btn-secondary py-2 px-3 mt-1"><FiArrowLeft /></button>
         <div className="flex-1">
           <div className="flex items-center gap-3 flex-wrap">
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{lead.name}</h1>
@@ -98,7 +98,7 @@ export default function LeadDetail() {
           </div>
           <p className="text-gray-500 mt-1">{lead.company} · {lead.industry}</p>
         </div>
-        <button onClick={() => navigate(`/leads?edit=${id}`)} className="btn-secondary"><FiEdit2 /> Edit</button>
+        <button onClick={() => navigate(`/BDA_CRM_Dashboard/leads?edit=${id}`)} className="btn-secondary"><FiEdit2 /> Edit</button>
       </div>
 
       {/* Quick status update */}
