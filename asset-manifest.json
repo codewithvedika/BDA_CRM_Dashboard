@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/BDA_CRM_Dashboard/static/css/main.75762eff.css",
+    "main.js": "/BDA_CRM_Dashboard/static/js/main.ea0b068c.js",
+    "index.html": "/BDA_CRM_Dashboard/index.html",
+    "main.75762eff.css.map": "/BDA_CRM_Dashboard/static/css/main.75762eff.css.map",
+    "main.ea0b068c.js.map": "/BDA_CRM_Dashboard/static/js/main.ea0b068c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.75762eff.css",
+    "static/js/main.ea0b068c.js"
+  ]
+}
